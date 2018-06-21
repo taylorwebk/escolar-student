@@ -45,7 +45,6 @@ export default class Container extends Component {
   }
   render() {
     const { logged, student, selected } = this.state
-    console.log(student, this.state)
     let contenido
     switch (selected) {
       case 0:
