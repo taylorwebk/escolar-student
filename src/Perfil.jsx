@@ -50,6 +50,29 @@ const Perfil = ({ student }) => (
         </Typography>
       </Typography>
     </Paper>
+    <Paper elevation={5} style={styles.root}>
+      <Typography color="primary" variant="display1" gutterBottom>
+        A tutor&iacute;a de:
+      </Typography>
+      <Typography color="primary" variant="headline">
+        Nombre:
+        <Typography align="center" headlineMapping={{ headline: 'span' }} color="secondary" variant="headline" gutterBottom>
+          {student.apoderado.nombre}
+        </Typography>
+      </Typography>
+      <Typography color="primary" variant="headline">
+        N&uacute;mero de referencia:
+        <Typography align="center" headlineMapping={{ headline: 'span' }} color="secondary" variant="headline" gutterBottom>
+          {student.apoderado.nroref}
+        </Typography>
+      </Typography>
+      <Typography color="primary" variant="headline">
+        Parentesco:
+        <Typography align="center" headlineMapping={{ headline: 'span' }} color="secondary" variant="headline" gutterBottom>
+          {student.apoderado.parentesco}
+        </Typography>
+      </Typography>
+    </Paper>
   </Grid>
 )
 export default Perfil

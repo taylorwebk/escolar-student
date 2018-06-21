@@ -29,7 +29,9 @@ class Header extends React.Component {
   };
 
   render() {
-    const { classes, student, studentLogout } = this.props
+    const {
+      classes, student, studentLogout, changeContent
+    } = this.props
     const { anchorEl } = this.state
     const open = Boolean(anchorEl)
 
@@ -63,7 +65,20 @@ class Header extends React.Component {
                 open={open}
                 onClose={this.handleClose}
               >
-                <MenuItem onClick={this.handleClose}>Perfil</MenuItem>
+                <MenuItem onClick={() => {
+                  this.handleClose()
+                  changeContent(0)
+                }}
+                >
+                  Perfil
+                </MenuItem>
+                <MenuItem onClick={() => {
+                  this.handleClose()
+                  changeContent(1)()
+                }}
+                >
+                  Materias
+                </MenuItem>
                 <MenuItem onClick={studentLogout}>Salir</MenuItem>
               </Menu>
             </div>

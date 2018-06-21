@@ -3,6 +3,7 @@ import { Grid } from '@material-ui'
 import Header from './Header'
 import Login from './Login'
 import Perfil from './Perfil'
+import Materias from './Materias'
 // perfil, materias(default), materia, loginform
 export default class Container extends Component {
   constructor() {
@@ -14,6 +15,9 @@ export default class Container extends Component {
     }
   }
   componentDidMount = () => {
+    this.checkLogin()
+  }
+  checkLogin = () => {
     const tokenstr = localStorage.getItem('token')
     if (tokenstr === null) {
       this.setState({ logged: false })
@@ -34,6 +38,11 @@ export default class Container extends Component {
       student: {}
     })
   }
+  changeContent = nro => () => {
+    this.setState({
+      selected: nro
+    })
+  }
   render() {
     const { logged, student, selected } = this.state
     console.log(student, this.state)
@@ -41,6 +50,9 @@ export default class Container extends Component {
     switch (selected) {
       case 0:
         contenido = <Perfil student={student} />
+        break
+      case 1:
+        contenido = <Materias checkLogin={this.checkLogin} />
         break
       default:
         contenido = null
@@ -51,6 +63,7 @@ export default class Container extends Component {
         {logged &&
           <Header
             studentLogout={this.studentLogout}
+            changeContent={this.changeContent}
             student={`${student.appat} ${student.apmat} ${student.nombres}`}
           />
         }
