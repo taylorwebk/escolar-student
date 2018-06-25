@@ -5,16 +5,11 @@ import {
   CircularProgress,
   Typography,
   Card,
-  CardContent,
-  Table,
-  TableRow,
-  TableBody,
-  TableCell,
-  TableHead,
-  Paper
+  CardContent
 } from '@material-ui'
 import axios from 'axios'
 import ArrowBack from '@material-ui/icons/ArrowBack'
+import Bimestre from './Bimestre'
 import url from './utils'
 
 export default class Materia extends Component {
@@ -112,174 +107,10 @@ export default class Materia extends Component {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper style={{ overflowX: 'auto' }}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell colSpan={4}>
-                      <Typography variant="title" color="primary">
-                        Primer Bimestre
-                      </Typography>
-                      <Typography variant="subheading" color="secondary">
-                        Nota Bimestral: {
-                          t1bim.length === 0 ? 'Sin trabajos aún' : parseInt(t1bim.reduce((sum, trabajo) =>
-                          (sum + trabajo.nota), 0) / t1bim.length, 10)
-                        }
-                      </Typography>
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableHead>
-                  <TableRow>
-                    <TableCell numeric>Nro.</TableCell>
-                    <TableCell>Fecha</TableCell>
-                    <TableCell>Nombre</TableCell>
-                    <TableCell numeric>Nota</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {t1bim.map((trabajo, i) => (
-                    <TableRow key={`${trabajo.nombre}.${trabajo.fecha}`}>
-                      <TableCell component="th" scope="row">
-                        {i}
-                      </TableCell>
-                      <TableCell>{trabajo.fecha}</TableCell>
-                      <TableCell>{trabajo.nombre}</TableCell>
-                      <TableCell numeric>{trabajo.nota}</TableCell>
-                    </TableRow>
-                    ))
-                  }
-                </TableBody>
-              </Table>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper style={{ overflowX: 'auto' }}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell colSpan={4}>
-                      <Typography variant="title" color="primary">
-                        Segundo Bimestre
-                      </Typography>
-                      <Typography variant="subheading" color="secondary">
-                        Nota Bimestral: {
-                          t2bim.length === 0 ? 'Sin trabajos aún' : parseInt(t2bim.reduce((sum, trabajo) =>
-                          (sum + trabajo.nota), 0) / t2bim.length, 10)
-                        }
-                      </Typography>
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableHead>
-                  <TableRow>
-                    <TableCell numeric>Nro.</TableCell>
-                    <TableCell>Fecha</TableCell>
-                    <TableCell>Nombre</TableCell>
-                    <TableCell numeric>Nota</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {t2bim.map((trabajo, i) => (
-                    <TableRow key={`${trabajo.nombre}.${trabajo.fecha}`}>
-                      <TableCell component="th" scope="row">
-                        {i}
-                      </TableCell>
-                      <TableCell>{trabajo.fecha}</TableCell>
-                      <TableCell>{trabajo.nombre}</TableCell>
-                      <TableCell numeric>{trabajo.nota}</TableCell>
-                    </TableRow>
-                    ))
-                  }
-                </TableBody>
-              </Table>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper style={{ overflowX: 'auto' }}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell colSpan={4}>
-                      <Typography variant="title" color="primary">
-                        Tercer Bimestre
-                      </Typography>
-                      <Typography variant="subheading" color="secondary">
-                        Nota Bimestral: {
-                          t3bim.length === 0 ? 'Sin trabajos aún' : parseInt(t3bim.reduce((sum, trabajo) =>
-                          (sum + trabajo.nota), 0) / t3bim.length, 10)
-                        }
-                      </Typography>
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableHead>
-                  <TableRow>
-                    <TableCell numeric>Nro.</TableCell>
-                    <TableCell>Fecha</TableCell>
-                    <TableCell>Nombre</TableCell>
-                    <TableCell numeric>Nota</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {t3bim.map((trabajo, i) => (
-                    <TableRow key={`${trabajo.nombre}.${trabajo.fecha}`}>
-                      <TableCell component="th" scope="row">
-                        {i}
-                      </TableCell>
-                      <TableCell>{trabajo.fecha}</TableCell>
-                      <TableCell>{trabajo.nombre}</TableCell>
-                      <TableCell numeric>{trabajo.nota}</TableCell>
-                    </TableRow>
-                    ))
-                  }
-                </TableBody>
-              </Table>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper style={{ overflowX: 'auto' }}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell colSpan={4}>
-                      <Typography variant="title" color="primary">
-                        Cuarto Bimestre
-                      </Typography>
-                      <Typography variant="subheading" color="secondary">
-                        Nota Bimestral: {
-                          t4bim.length === 0 ? 'Sin trabajos aún' : parseInt(t4bim.reduce((sum, trabajo) =>
-                          (sum + trabajo.nota), 0) / t4bim.length, 10)
-                        }
-                      </Typography>
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableHead>
-                  <TableRow>
-                    <TableCell numeric>Nro.</TableCell>
-                    <TableCell>Fecha</TableCell>
-                    <TableCell><b>Nombre</b></TableCell>
-                    <TableCell numeric>Nota</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {t4bim.map((trabajo, i) => (
-                    <TableRow key={`${trabajo.nombre}.${trabajo.fecha}`}>
-                      <TableCell component="th" scope="row">
-                        {i}
-                      </TableCell>
-                      <TableCell>{trabajo.fecha}</TableCell>
-                      <TableCell>{trabajo.nombre}</TableCell>
-                      <TableCell numeric>{trabajo.nota}</TableCell>
-                    </TableRow>
-                    ))
-                  }
-                </TableBody>
-              </Table>
-            </Paper>
-          </Grid>
+          <Bimestre bim={t1bim} nro={1} />
+          <Bimestre bim={t2bim} nro={2} />
+          <Bimestre bim={t3bim} nro={3} />
+          <Bimestre bim={t4bim} nro={4} />
         </Grid>
       </Grid>
     )
